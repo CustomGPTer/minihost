@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MiniHost: turn a spare Android phone into your own private server</title>
+<meta name="description" content="MiniHost turns a spare Android phone into a private file server, website host and Netflix-style media server, with a network drive, SFTP, smart-TV streaming, share links, alerts and encrypted backups. Home only by default. No account, no adverts, nothing to buy.">
+<meta name="author" content="Jonathan Jackson">
+<link rel="canonical" href="https://customgpter.github.io/minihost/">
+<meta name="theme-color" content="#f3f7fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#060a13" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MiniHost">
+<meta property="og:title" content="MiniHost: turn a spare Android phone into your own private server">
+<meta property="og:description" content="MiniHost turns a spare Android phone into a private file server, website host and Netflix-style media server, with a network drive, SFTP, smart-TV streaming, share links, alerts and encrypted backups. Home only by default. No account, no adverts, nothing to buy.">
+<meta property="og:url" content="https://customgpter.github.io/minihost/">
+<meta property="og:image" content="https://customgpter.github.io/minihost/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MiniHost&#x27;s dashboard: the server online, its address, uptime, storage and temperature">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+<link rel="preload" href="./assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/fonts/atkinson-hyperlegible-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="./assets/site.css?v=1">
+<link rel="stylesheet" href="./assets/house.css?v=1">
+<link rel="stylesheet" href="./assets/apps-list.css?v=1">
+<script src="./assets/apps-list.js?v=1" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"MiniHost","url":"https://customgpter.github.io/minihost/","description":"MiniHost turns a spare Android phone into a private file server, website host and Netflix-style media server, with a network drive, SFTP, smart-TV streaming, share links, alerts and encrypted backups. Home only by default. No account, no adverts, nothing to buy.","applicationCategory":"UtilitiesApplication","operatingSystem":"Android 10 or later","softwareVersion":"1.0.0","downloadUrl":"https://github.com/CustomGPTer/minihost/releases/latest/download/MiniHost.apk","releaseNotes":"https://customgpter.github.io/minihost/releases.html","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"inLanguage":"en-GB","image":"https://customgpter.github.io/minihost/assets/og.png","featureList":["Files in any browser","A drive on your computer","Share links","Phone, SD card and USB","A Netflix-style library","Smart TVs find it","Subtitles","Playable copies","Four ready-made designs","Your own site","Several sites at once","Kept apart"],"author":{"@type":"Person","name":"Jonathan Jackson"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is MiniHost really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. There is no paid version, no trial, no subscription and no adverts. Every feature is in the free app."}},{"@type":"Question","name":"Is it on Google Play?","acceptedAnswer":{"@type":"Answer","text":"No. MiniHost is a personal project and is downloaded from this site as an Android app file. It needs Android 10 or later."}},{"@type":"Question","name":"What phone do I need?","acceptedAnswer":{"@type":"Answer","text":"Any spare Android 10 or later phone that can stay on charge at home. Turn on the battery protection setting (charge to 85%) if the phone has one, and keep it somewhere cool."}},{"@type":"Question","name":"Can I still use the phone for other things?","acceptedAnswer":{"@type":"Answer","text":"MiniHost is designed for a phone used only as a server. Server Mode makes it the home screen with a PIN to leave, so the server is never closed by accident."}},{"@type":"Question","name":"Can I reach it away from home?","acceptedAnswer":{"@type":"Answer","text":"Yes, when you switch on Anywhere. Tailscale (free) links your own devices privately; Cloudflare (free account, your own domain name) gives websites and share links a public address. Your router doesn't need changing for either."}},{"@type":"Question","name":"Is it safe?","acceptedAnswer":{"@type":"Answer","text":"It is Home only by default. Every connection uses HTTPS, every person has their own account and folders, admins need a 6-digit code, and sign-ins are blocked after repeated wrong passwords."}},{"@type":"Question","name":"Why does the browser say the connection isn't private?","acceptedAnswer":{"@type":"Answer","text":"Your server makes its own certificate. Install it once on each device (Help, Get the padlock in your browser) and the warning goes for good."}},{"@type":"Question","name":"Do smart TVs work with it?","acceptedAnswer":{"@type":"Answer","text":"Most do. TVs, games consoles and VLC find the server on your Wi-Fi through DLNA and play films and music straight from it."}},{"@type":"Question","name":"What happens after a power cut?","acceptedAnswer":{"@type":"Answer","text":"MiniHost starts again by itself when the phone turns back on. With no screen lock it is back within a minute or two. A watchdog restarts the server if Android ever stops it."}},{"@type":"Question","name":"How do I move to a new phone?","acceptedAnswer":{"@type":"Answer","text":"Back up in Settings, Backup, then restore the file on the new phone. Accounts, share links, websites and the padlock certificate all come back. Copy your files across as normal."}},{"@type":"Question","name":"How do I update it?","acceptedAnswer":{"@type":"Answer","text":"Settings, About, Check for updates. Download MiniHost.apk and install it over the old one. Do not uninstall first."}},{"@type":"Question","name":"Who made it?","acceptedAnswer":{"@type":"Answer","text":"MiniHost is made by Jonathan Jackson, an independent developer in the United Kingdom."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+<div class="wrap">
+<a class="brand" href="./" aria-label="MiniHost home"><svg viewBox="0 0 108 108" aria-hidden="true"><defs><linearGradient id="mhbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1a33"/><stop offset="1" stop-color="#04070e"/></linearGradient></defs><rect width="108" height="108" rx="24" fill="url(#mhbg)"/><g transform="translate(54 54) scale(1.32) translate(-54 -54)"><path d="M36,30h36a5,5 0 0 1 5,5v38a5,5 0 0 1 -5,5h-36a5,5 0 0 1 -5,-5v-38a5,5 0 0 1 5,-5z" fill="#0f2140" stroke="#22d3ee" stroke-width="1.6"/><path d="M38,35h32a2,2 0 0 1 2,2v8a2,2 0 0 1 -2,2h-32a2,2 0 0 1 -2,-2v-8a2,2 0 0 1 2,-2z" fill="#16305a"/><path d="M38,50h32a2,2 0 0 1 2,2v8a2,2 0 0 1 -2,2h-32a2,2 0 0 1 -2,-2v-8a2,2 0 0 1 2,-2z" fill="#16305a"/><path d="M38,65h32a2,2 0 0 1 2,2v4a2,2 0 0 1 -2,2h-32a2,2 0 0 1 -2,-2v-4a2,2 0 0 1 2,-2z" fill="#16305a"/><circle cx="42" cy="41" r="2" fill="#34d399"/><circle cx="48" cy="41" r="2" fill="#22d3ee"/><circle cx="42" cy="56" r="2" fill="#34d399"/><circle cx="48" cy="56" r="2" fill="#22d3ee"/><path d="M56,40h12v2h-12z M56,55h12v2h-12z" fill="#22d3ee" fill-opacity=".6"/><path d="M42,69h26v2h-26z" fill="#34d399"/></g></svg><span>MiniHost</span></a>
+<nav aria-label="Main"><ul><li><a href="./#features">Features</a></li><li><a href="./compare.html">Compare</a></li><li><a href="./releases.html">Releases</a></li><li><a class="more-apps" href="./more-apps.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg>More apps</a></li></ul></nav>
+<a class="button small" href="https://github.com/CustomGPTer/minihost/releases/latest/download/MiniHost.apk"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11"/><path d="M7 10.5l5 5 5-5"/><path d="M5 20h14"/></svg>Download</a>
+</div>
+</header>
+<main id="main">
+<div class="hero">
+<div class="wrap hero-grid">
+<div class="hero-copy">
+<h1>Your phone. Your server.</h1>
+<p class="lede">MiniHost turns a spare Android phone into a proper home server. Your files in any browser and as a drive on your computer, your own websites, and a Netflix-style library of films, shows and music that smart TVs find by themselves.</p><p class="lede">It runs on your own phone at home, with the padlock, accounts for the family and 6-digit codes for admins. When you want it, switch on Anywhere and reach it away from home through Tailscale or Cloudflare. Nothing goes through anyone else's cloud.</p>
+
+<p class="get" id="download"><a class="button" href="https://github.com/CustomGPTer/minihost/releases/latest/download/MiniHost.apk"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11"/><path d="M7 10.5l5 5 5-5"/><path d="M5 20h14"/></svg>Download for Android</a><a class="aside" href="#install">How to install</a></p>
+<ul class="pills"><li>Version 1.0.0</li><li>Android 10 or later</li><li>30.7 MB</li></ul>
+<p class="facts">Free, with nothing to unlock. No adverts, no account with the developer, no tracking. <a href="compare.html">Compare</a> or read the <a href="releases.html">release notes</a>.</p>
+<p class="facts">Chrome may say the file might be harmful. It shows this for app files that do not come from Google Play. Choose Download anyway.</p>
+</div>
+<div class="hero-phone"><div class="phone"><img src="./assets/screens/dashboard.png" alt="The dashboard: the server&#x27;s address, uptime, storage, temperature and charge at a glance, plus Home only or Anywhere." width="393" height="852" fetchpriority="high"></div></div>
+</div>
+</div>
+
+<section class="promises" aria-label="In short">
+<div class="wrap"><ul><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.6 12.4l2.3 2.3 4.5-4.9"/></svg><span><b>Home only by default</b><span>Nothing is open to the internet until you say so.</span></span></li><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.6 12.4l2.3 2.3 4.5-4.9"/></svg><span><b>No account</b><span>Set it up on the phone and start.</span></span></li><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.6 12.4l2.3 2.3 4.5-4.9"/></svg><span><b>No adverts</b><span>None in the app and none on this site.</span></span></li><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.6 12.4l2.3 2.3 4.5-4.9"/></svg><span><b>Nothing to buy</b><span>Every feature is free, with no trial and no limits.</span></span></li></ul></div>
+</section>
+
+<section id="screens" aria-labelledby="screens-h">
+<div class="wrap">
+<h2 id="screens-h">A look inside</h2>
+<p class="intro">These are the real screens, drawn from the app&#x27;s own code with made-up files, films and websites. Swipe or scroll sideways to see them all.</p>
+<div class="gallery" tabindex="0" role="region" aria-label="Screens from MiniHost"><figure class="shot"><div class="phone"><img src="./assets/screens/dashboard.png" alt="The dashboard: the server&#x27;s address, uptime, storage, temperature and charge at a glance, plus Home only or Anywhere." width="393" height="852" loading="eager" decoding="async"></div><figcaption>The dashboard: the server&#x27;s address, uptime, storage, temperature and charge at a glance, plus Home only or Anywhere.</figcaption></figure><figure class="shot"><div class="phone"><img src="./assets/screens/media.png" alt="Films, shows and music in any browser, with posters, resume where you left off and a full-screen player." width="393" height="852" loading="eager" decoding="async"></div><figcaption>Films, shows and music in any browser, with posters, resume where you left off and a full-screen player.</figcaption></figure><figure class="shot"><div class="phone"><img src="./assets/screens/services.png" alt="Services: switch each part on or off — files, network drive, SFTP, websites, media and TV streaming." width="393" height="852" loading="eager" decoding="async"></div><figcaption>Services: switch each part on or off — files, network drive, SFTP, websites, media and TV streaming.</figcaption></figure><figure class="shot"><div class="phone"><img src="./assets/screens/outside.png" alt="Outside access: Home only or Anywhere, and exactly which services open through Tailscale or Cloudflare." width="393" height="852" loading="eager" decoding="async"></div><figcaption>Outside access: Home only or Anywhere, and exactly which services open through Tailscale or Cloudflare.</figcaption></figure><figure class="shot"><div class="phone"><img src="./assets/screens/health.png" alt="Health check: about 20 checks in a few seconds, each problem with a Fix button, plus a broadband speed test." width="393" height="852" loading="eager" decoding="async"></div><figcaption>Health check: about 20 checks in a few seconds, each problem with a Fix button, plus a broadband speed test.</figcaption></figure><figure class="shot"><div class="phone"><img src="./assets/screens/alerts.png" alt="Alerts on your main phone through the free ntfy app, and a gone-offline check with Healthchecks.io." width="393" height="852" loading="eager" decoding="async"></div><figcaption>Alerts on your main phone through the free ntfy app, and a gone-offline check with Healthchecks.io.</figcaption></figure><figure class="shot"><div class="phone"><img src="./assets/screens/website.png" alt="A website hosted on the phone, made from one of the four ready-made designs." width="393" height="852" loading="eager" decoding="async"></div><figcaption>A website hosted on the phone, made from one of the four ready-made designs.</figcaption></figure><figure class="shot"><div class="phone"><img src="./assets/screens/help.png" alt="Clear, illustrated guides for every step, from the padlock to Tailscale and Cloudflare." width="393" height="852" loading="eager" decoding="async"></div><figcaption>Clear, illustrated guides for every step, from the padlock to Tailscale and Cloudflare.</figcaption></figure><figure class="shot"><div class="phone"><img src="./assets/screens/wizard.png" alt="The set-up walkthrough: each step opens the right phone setting and ticks itself off when done." width="393" height="852" loading="eager" decoding="async"></div><figcaption>The set-up walkthrough: each step opens the right phone setting and ticks itself off when done.</figcaption></figure><figure class="shot"><div class="phone"><img src="./assets/screens/opening.png" alt="The opening screen." width="393" height="852" loading="eager" decoding="async"></div><figcaption>The opening screen.</figcaption></figure></div>
+</div>
+</section>
+
+<section id="how" aria-labelledby="how-h">
+<div class="wrap">
+<h2 id="how-h">How it works</h2>
+<p class="intro">MiniHost runs real servers on the phone itself: a secure web server, a network drive, SFTP, a websites server and a TV media server. Everything stays on the phone.</p>
+<ol class="steps"><li><h3>Set up the phone</h3><p>A spare phone on charge at home. The walkthrough sorts out battery saving, start-up after a power cut and a fixed address.</p></li><li><h3>Open it anywhere at home</h3><p>Type the address shown on the phone into any browser, or scan the QR code. Sign in and your files, films and websites are there.</p></li><li><h3>Reach it away from home</h3><p>Switch on Anywhere and choose Tailscale for your own devices or Cloudflare for a public web address, service by service.</p></li></ol>
+</div>
+</section>
+
+<section id="features" aria-labelledby="features-h">
+<div class="wrap">
+<h2 id="features-h">Everything is in, and all of it is free</h2>
+<p class="intro">Nothing below is held back for a paid tier, because there is no paid tier.</p>
+<div class="groups"><div class="group"><h3>Files</h3><dl><div><dt>Files in any browser</dt><dd>Browse, upload, download, preview photos, videos and PDFs, and edit text files. Uploads of any size pick up again if they drop.</dd></div><div><dt>A drive on your computer</dt><dd>Map the phone as a network drive in File Explorer or Finder (WebDAV), or use FileZilla and WinSCP over SFTP.</dd></div><div><dt>Share links</dt><dd>Links that expire, with an optional password and download limit, for people without an account.</dd></div><div><dt>Phone, SD card and USB</dt><dd>Share the phone's storage, a memory card or a USB drive plugged into it.</dd></div></dl></div><div class="group"><h3>Films, TV and music</h3><dl><div><dt>A Netflix-style library</dt><dd>Films, TV shows by season, videos and music albums, with resume points for each person.</dd></div><div><dt>Smart TVs find it</dt><dd>TVs, games consoles and VLC see the server on your Wi-Fi and play straight from it (DLNA).</dd></div><div><dt>Subtitles</dt><dd>.srt files next to a video are picked up and shown in the player.</dd></div><div><dt>Playable copies</dt><dd>Videos a browser can't play can be converted on the phone, pausing if it gets warm.</dd></div></dl></div><div class="group"><h3>Websites</h3><dl><div><dt>Four ready-made designs</dt><dd>A personal page, a photo gallery, a link page and a countdown, filled in like a form with a live preview.</dd></div><div><dt>Your own site</dt><dd>Upload a zip with an index.html and it is published in seconds.</dd></div><div><dt>Several sites at once</dt><dd>Each at its own address; make one the home page, or keep one private to people with an account.</dd></div><div><dt>Kept apart</dt><dd>Websites run on their own address, so a site's code can never reach your files or settings.</dd></div></dl></div><div class="group"><h3>Safe by design</h3><dl><div><dt>The padlock everywhere</dt><dd>HTTPS with the server's own certificate, which you install once on each device.</dd></div><div><dt>Accounts with roles</dt><dd>Admin, family and guest, each limited to their own folders. Admins need a 6-digit code.</dd></div><div><dt>Blocked after wrong guesses</dt><dd>Sign-ins stop after repeated wrong passwords, and every visit is in the activity log.</dd></div><div><dt>Server Mode</dt><dd>The phone becomes the server and nothing else, with a PIN to leave.</dd></div></dl></div><div class="group"><h3>Away from home</h3><dl><div><dt>Home only or Anywhere</dt><dd>One switch. Anywhere can only be switched on at the phone, with its PIN.</dd></div><div><dt>Tailscale</dt><dd>Private access from your own phones and laptops, with the free Tailscale app.</dd></div><div><dt>Cloudflare</dt><dd>A public web address with the padlock for your websites and share links, with Cloudflare's own tunnel built in.</dd></div><div><dt>Chosen per service</dt><dd>Decide which services open through which route. TV streaming always stays at home.</dd></div></dl></div><div class="group"><h3>Looking after it</h3><dl><div><dt>Alerts on your main phone</dt><dd>Heat, power cuts, blocked sign-ins, low storage and more, through the free ntfy app.</dd></div><div><dt>Gone-offline check</dt><dd>Healthchecks.io tells you if the server stops checking in.</dd></div><div><dt>Health check and speed test</dt><dd>About 20 checks in one tap, each problem with a Fix button.</dd></div><div><dt>Encrypted backups</dt><dd>Settings, accounts, links, websites and the certificate, saved daily to Google Drive or any folder.</dd></div></dl></div></div>
+</div>
+</section>
+
+<section id="privacy" aria-labelledby="privacy-h">
+<div class="wrap">
+<h2 id="privacy-h">Private by design</h2>
+<ul class="plain"><li><h3>Your files stay on your phone</h3><p>MiniHost serves them straight from the phone. Nothing is uploaded to the developer or anyone else.</p></li><li><h3>No account, no tracking</h3><p>There is no sign-in with the developer, no analytics and no advertising.</p></li><li><h3>Online only when you choose</h3><p>Outside access, alerts, film posters, backups to Drive and the update check are all off until you switch them on.</p></li></ul>
+</div>
+</section>
+
+<section id="install" aria-labelledby="install-h">
+<div class="wrap">
+<h2 id="install-h">Installing and updating</h2>
+<p class="intro">MiniHost is not on Google Play, so your phone asks a couple of extra questions the first time.</p>
+<ol class="steps"><li><h3>Download the app file</h3><p>Tap Download on your phone. The file is called MiniHost.apk and is about 30.7 MB. If Chrome says the file might be harmful, choose Download anyway.</p></li><li><h3>Allow the install</h3><p>Open the file. The first time, Android asks you to allow your browser to install apps. Allow it, go back and tap Install. If Google Play Protect steps in, choose More details, then Install anyway.</p></li><li><h3>Updating later</h3><p>Settings, About, Check for updates asks GitHub for the newest version only when you tap it, and offers the download. Install the new file over the old one: do not uninstall first, or the server's accounts, links and settings are lost (or restore them from a backup).</p></li></ol>
+<p class="after-table">Version 1.0.0, released 26 November 2026. See the <a href="releases.html">release notes</a>, or <a href="releases.html#checking">check your download</a>.</p>
+</div>
+</section>
+
+<section id="questions" aria-labelledby="questions-h">
+<div class="wrap">
+<h2 id="questions-h">Questions</h2>
+<div class="faq"><details><summary>Is MiniHost really free?</summary><p>Yes. There is no paid version, no trial, no subscription and no adverts. Every feature is in the free app.</p></details><details><summary>Is it on Google Play?</summary><p>No. MiniHost is a personal project and is downloaded from this site as an Android app file. It needs Android 10 or later.</p></details><details><summary>What phone do I need?</summary><p>Any spare Android 10 or later phone that can stay on charge at home. Turn on the battery protection setting (charge to 85%) if the phone has one, and keep it somewhere cool.</p></details><details><summary>Can I still use the phone for other things?</summary><p>MiniHost is designed for a phone used only as a server. Server Mode makes it the home screen with a PIN to leave, so the server is never closed by accident.</p></details><details><summary>Can I reach it away from home?</summary><p>Yes, when you switch on Anywhere. Tailscale (free) links your own devices privately; Cloudflare (free account, your own domain name) gives websites and share links a public address. Your router doesn't need changing for either.</p></details><details><summary>Is it safe?</summary><p>It is Home only by default. Every connection uses HTTPS, every person has their own account and folders, admins need a 6-digit code, and sign-ins are blocked after repeated wrong passwords.</p></details><details><summary>Why does the browser say the connection isn&#x27;t private?</summary><p>Your server makes its own certificate. Install it once on each device (Help, Get the padlock in your browser) and the warning goes for good.</p></details><details><summary>Do smart TVs work with it?</summary><p>Most do. TVs, games consoles and VLC find the server on your Wi-Fi through DLNA and play films and music straight from it.</p></details><details><summary>What happens after a power cut?</summary><p>MiniHost starts again by itself when the phone turns back on. With no screen lock it is back within a minute or two. A watchdog restarts the server if Android ever stops it.</p></details><details><summary>How do I move to a new phone?</summary><p>Back up in Settings, Backup, then restore the file on the new phone. Accounts, share links, websites and the padlock certificate all come back. Copy your files across as normal.</p></details><details><summary>How do I update it?</summary><p>Settings, About, Check for updates. Download MiniHost.apk and install it over the old one. Do not uninstall first.</p></details><details><summary>Who made it?</summary><p>MiniHost is made by Jonathan Jackson, an independent developer in the United Kingdom.</p></details></div>
+</div>
+</section>
+
+<section class="closing" aria-labelledby="closing-h">
+<div class="wrap">
+<div><h2 id="closing-h">Turn a spare phone into your server</h2><p>Free, with no adverts and nothing to unlock. Made by the developer of several other free Android apps: <a href="more-apps.html">see them all</a>.</p></div>
+<a class="button" href="https://github.com/CustomGPTer/minihost/releases/latest/download/MiniHost.apk"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11"/><path d="M7 10.5l5 5 5-5"/><path d="M5 20h14"/></svg>Download for Android</a>
+</div>
+</section>
+</main>
+<footer class="colophon">
+<div class="wrap">
+<div>
+<a class="brand" href="./" aria-label="MiniHost home"><svg viewBox="0 0 108 108" aria-hidden="true"><defs><linearGradient id="mhbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1a33"/><stop offset="1" stop-color="#04070e"/></linearGradient></defs><rect width="108" height="108" rx="24" fill="url(#mhbg)"/><g transform="translate(54 54) scale(1.32) translate(-54 -54)"><path d="M36,30h36a5,5 0 0 1 5,5v38a5,5 0 0 1 -5,5h-36a5,5 0 0 1 -5,-5v-38a5,5 0 0 1 5,-5z" fill="#0f2140" stroke="#22d3ee" stroke-width="1.6"/><path d="M38,35h32a2,2 0 0 1 2,2v8a2,2 0 0 1 -2,2h-32a2,2 0 0 1 -2,-2v-8a2,2 0 0 1 2,-2z" fill="#16305a"/><path d="M38,50h32a2,2 0 0 1 2,2v8a2,2 0 0 1 -2,2h-32a2,2 0 0 1 -2,-2v-8a2,2 0 0 1 2,-2z" fill="#16305a"/><path d="M38,65h32a2,2 0 0 1 2,2v4a2,2 0 0 1 -2,2h-32a2,2 0 0 1 -2,-2v-4a2,2 0 0 1 2,-2z" fill="#16305a"/><circle cx="42" cy="41" r="2" fill="#34d399"/><circle cx="48" cy="41" r="2" fill="#22d3ee"/><circle cx="42" cy="56" r="2" fill="#34d399"/><circle cx="48" cy="56" r="2" fill="#22d3ee"/><path d="M56,40h12v2h-12z M56,55h12v2h-12z" fill="#22d3ee" fill-opacity=".6"/><path d="M42,69h26v2h-26z" fill="#34d399"/></g></svg><span>MiniHost</span></a>
+<p>&copy; 2026 Jonathan Jackson. MiniHost is an independent app.</p>
+<p>This site uses no cookies and no tracking.</p>
+<p>Set in Bricolage Grotesque and Atkinson Hyperlegible.</p>
+</div>
+<nav aria-label="The app"><h2>The app</h2><ul>
+<li><a href="./">Home</a></li>
+<li><a href="./compare.html">Compare</a></li>
+<li><a href="./releases.html">Release notes</a></li>
+
+</ul></nav>
+<nav aria-label="Legal"><h2>Legal</h2><ul>
+<li><a href="./privacy.html">Privacy policy</a></li>
+<li><a href="./terms.html">Terms of use</a></li>
+<li><a href="./licences.html">Licences</a></li>
+</ul></nav>
+<nav aria-label="More"><h2>More</h2><ul>
+<li><a href="./more-apps.html">More apps</a></li>
+<li><a href="https://customgpter.github.io/">All apps</a></li>
+<li><a href="https://github.com/CustomGPTer/minihost/issues">Contact</a></li>
+</ul></nav>
+</div>
+</footer>
+</body>
+</html>
